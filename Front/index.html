@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/jquery.auto-complete.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="index.html" class="logo">Wine Recommender</a>
+				<nav class="right">
+					<a id="join-btn" href="join.html" class="button alt">Join</a>
+					<a id="lgn-btn" href="login.html" class="button alt">Log in</a>
+				</nav>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="authorized.html">My Wine</a></li>
+					<li><a href="generic.html">Recommendation</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="login.html" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<P><h1>Enjoy the wine, just for you</h1></p>
+					<p>What flavors do you like? Sweet or bitter?<br />We will recommend you the perfect wine!</p>
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Get Started</a></li>
+					</ul>
+				</div>
+			</section>
+		
+		
+		<!-- Modal -->
+		<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  			<div class="modal-dialog modal-dialog-centered" role="document"  >
+    			<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title" id="ModalCenterTitle"><h5>Did you have ever been tasted <strong>wine?</strong></h5></h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+
+      			<div class="modal-body"> <!------------after 'submit' ajax response should fill this div(modal-body)---->
+        			
+					<!----simple questions----->
+					<form method="post" action="#">
+						<div id = "parent_frame">
+							<div class="6u 12u$(small)">
+								<input type="radio" id="yes" name="question" data-toggle="collapse" data-target="#yes" aria-expanded="false" aria-controls="yes" onclick="change_text_questions('Finish')">
+								<label for="yes">Yes</label>
+							</div>
+							<div class="collapse m-4" id="yes" data-parent="#parent_frame">
+  								<div class="card card-body">
+									<h5>Give me your <strong>three favorite wines ! </strong></h5><br><br>
+									<p><strong>You need to select 3 wines, start typing a wine's name in the box, a list should be displayed then click on the wine you want to select</strong> </p>
+									<label>wine 1</label>
+									<div name="wine_1" class="col-xs-4 mb-4">
+										<input id="hero-demo" autofocus type="text" name="wine_1" placeholder="Type your wine here"/>
+									</div>					
+									<label>wine 2</label>
+									<div class="col-xs-4 mb-4" name="wine_2">
+										<input id="hero-demo" disabled=true autofocus type="text" name="wine_2" placeholder="Type your wine here" class="disabled"/>
+									</div>			
+									<label>wine 3</label>
+									<div class="col-xs-4" name="wine_3">
+										<input id="hero-demo" disabled=true autofocus type="text" name="wine_3" placeholder="Type your wine here" class="disabled"/>
+									</div>
+								</div>
+							<!--if user click "YES" -->
+							</div>
+							<div class="6u 12u$(small)">
+								<input type="radio" id="no" name="question" data-toggle="collapse" data-target="#no" aria-expanded="false" aria-controls="no" onclick="change_text_questions('Next Question')">
+								<label for="no">No</label>
+							</div>	
+								
+							<div class="collapse m-4" id="no" data-parent="#parent_frame">
+  								<div class="card card-body">
+								  	<div id = "ques_1">
+										<h5>Give me your <strong>Preference ! </strong></h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="sweet" name="taste1" value="sweet">
+											<label for="sweet">Sweet</label>
+										</div><br>
+													
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="dry" name="taste1" value="dry_tannin">
+											<label for="dry">Dry</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="tannin" name="taste1" value="dry_tannin">
+											<label for="tannin">Tannin</label>
+										</div><br>
+									</div>
+
+									<div id = "ques_2">				
+										<h5>Do you like <strong>Acidity ? </strong>(If No, you can just click Next Question)</h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="acidity" name="acidity" value="acidity">
+											<label for="acidity">Yes, I am</label>
+										</div><br>
+									</div>
+									
+									<div id = "ques_3">				
+										<h5>Do you like <strong>fruity tastes ? </strong>(If No, you can just click Next Question)</h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="fruity" name="fruity" value="fruity">
+											<label for="fruity">Yes, I love it !</label>
+										</div><br>
+									</div>
+
+									<div id = "ques_3_more">				
+										<h5>Which fruits <strong>do you like ? </strong></h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="lemon" name="fruit" value="lemon">
+											<label for="lemon">Lemon</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="lime" name="fruit" value="lime">
+											<label for="lime">Lime</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="berry" name="fruit" value="berry">
+											<label for="berry">Berry</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="pineapple" name="fruit" value="pineapple">
+											<label for="pineapple">Pineapple</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="apple" name="fruit" value="apple">
+											<label for="apple">Apple</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="cherry" name="fruit" value="cherry">
+											<label for="cherry">Cherry</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="strawberry" name="fruit" value="strawberry">
+											<label for="strawberry">Strawberry</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="apricot" name="fruit" value="apricot">
+											<label for="apricot">Apricot</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="grapefruit" name="fruit" value="grapefruit">
+											<label for="grapefruit">Grapefruit</label>
+										</div>
+									</div>
+									
+									<div id = "ques_4">				
+										<h5>Which body of wine <strong>do you prefer ? </strong></h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="light" name="wine_body" value="light">
+											<label for="light">Light body</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="full" name="wine_body" value="full">
+											<label for="full">Full body</label>
+										</div><br>
+									</div>
+
+									<div id = "ques_5">				
+										<h5>Which aroma of wine <strong>do you want ? </strong></h5><br>
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="earthy" name="aroma" value="earthy">
+											<label for="earthy">Earthy</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="spicy" name="aroma" value="spicy">
+											<label for="spicy">Spicy</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="smoky" name="aroma" value="smoky">
+											<label for="smoky">Smoky</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="flowery" name="aroma" value="flowery">
+											<label for="flowery">Flowery</label>
+										</div><br>
+
+										<div class="6u 12u$(xsmall)">
+											<input type="checkbox" id="herb" name="aroma" value="herb">
+											<label for="herb">Herb</label>
+										</div><br>
+									</div>
+
+									<div id = "ques_6">
+										<h5>What is the maximum price you would pay for a wine ?</h5><br>
+										<div>
+											<label for="range">Unit : 2(USD)</label>
+											<h5 id="price"></h5>
+											<input type="range" class="custom-range" value="0" min="0" max="1000" step=2 id="range" oninput="document.getElementById('price').innerHTML=this.value + '(USD)';">
+											<label for= "range">min : 0(USD), max : 1000(USD)</label>
+										</div>
+									</div>
+								</div>
+									
+							</div> <!-- if user click "NO" -->
+						</div>	<!-- Break -->
+
+						<div class="modal-footer">
+						<p id="message_end_quest"></p>
+        				<button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+       					<button type="button" id="next_quest" class="btn btn-info">Next Question</button>
+      					</div>
+					</form>
+
+      			</div>
+    			</div>
+  			</div>
+		</div>
+		
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item left">
+						<p>
+						<div>
+							<h3>With Simple Questions</h3>
+							<p>For those ..<br /> who have never tasted wine before.</p>
+						</div></p><br>
+						<p>
+						<div>
+							<h3>With Trend</h3>
+							<p>For those ..<br /> who want to try some popular wine.</p>
+						</div></p>
+					</div>
+					<div class="flex-item image fit round">
+						<img src="images/pic01.jpg" alt="" />
+					</div>
+					<div class="flex-item">
+						<p>
+						<div>
+							<h3>With Own Data</h3>
+							<p>For those ..<br /> who wants to get a recommendation for a wine similar to the one he's eaten.</p>
+						</div></p><br>
+						<p>
+						<div>
+							<h3>With Preference</h3>
+							<p>For those ..<br /> who wants to get a recommendation for wine experienced by users of the same preference.</p>
+						</div></p>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style1 special">
+				<div class="inner">
+					<p><h2>Enjoy the wine</h2></p>
+					<figure>
+					    <blockquote>
+					        <p>By saving the records that you experienced<br /> you can get a recommendation only for you.</p>
+					    </blockquote>
+					    <footer>
+					        <cite class="author">Let's join our site :)</cite><br>
+					        <a style="font-size:28px" href="join.html" class="button fit">Join in</a>
+					    </footer>
+					</figure>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner flex flex-3">
+					<p>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Knowledge-Based recommend</h3>
+							<p>We applied 'Knowledge-Based-Recommendation' algorithm.</p>
+						</div>
+					</div>
+					</p>
+					<p>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<br><br>
+							<h3>Content-Based recommend</h3>
+							<p>We applied 'Content-Based-Recommendation' algorithm.</p>
+						</div>
+					</div>
+					</p>
+				</div>
+			<div id="snackbar"></div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-envelope"></span> <a href="#">information@chungang_univ</a></li>
+						<li><span class="icon fa-map-marker"></span> 84, Heukseok-ro, Dongjak-gu, Seoul, Republic of Korea</li>
+						<li><span class="icon fa-group"></span>Groupe 11</li>
+					</ul>
+				</div>
+				<!--copyright
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>  -->
+			</footer>
+
+		<!-- Scripts -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+			<script src="assets/js/snackbar.js"></script>
+			<script src="assets/js/request_service.js"></script>
+			<script src="assets/js/mouseevent.js"></script>
+			<script src="assets/js/jquery.auto-complete.min.js"></script>
+			<script src="assets/js/quest_controller.js"></script>
+			<script src="assets/js/auth.js"></script>
+			<script src="assets/js/nav.js"></script>
+	</body>
+</html>

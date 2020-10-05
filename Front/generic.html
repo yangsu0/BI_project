@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<!----------------------------login required page ----------------------------->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/jquery.auto-complete.css" />
+	</head>
+    <style>
+    .nav-pills > li > a.active {
+    background-color: #FF7E79!important;
+    }
+    a:link {
+    color:grey;
+    text-decoration:none;
+    }
+    </style>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="index.html" class="logo">Wine Recommender</a>
+				<nav class="right">
+				</nav>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="authorized.html">My Wine</a></li>
+					<li><a href="generic.html">Recommendation</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="login.html" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+		
+		<!-- no login --> <!--popular, knowledge-->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<p><h1>Recommendation</h1><p>
+						<p>You will found here you wines recommendations</p>
+					</header>
+					<hr class="major" />
+
+					<div class="row">
+						<div class="6u 12u$(medium)">
+							<p><h3 style="color:grey">Most popular today - Top 10</h3></p><br>
+
+							<div class="row">
+  								<div class="col-16">
+    								<div class="list-group" id="list-tab" role="tablist">
+									</div>
+									<div class="tab-content" id="nav-tabContent">
+										
+									</div>
+  								</div>
+							</div>
+						</div>
+						<div class="6u 12u$(medium)">
+							<p><h3 style="color:grey">Recommendation For You</h3></p><hr />
+                            <div style="padding-left:20%">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-data-tab" data-toggle="pill" href="#pills-data" role="tab" aria-controls="pills-data" aria-selected="true">Recommendations</a>
+                                </li>
+                            </ul>
+                            </div>
+                            <hr />
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-data" role="tabpanel" aria-labelledby="pills-data-tab">
+                                <label><strong>Your recommendations</strong></label><br>
+                                    <p><ul id="top_rs" class="alt">
+										<div id="kb_spinner" class="spinner-border text-primary" role="status">
+											<span class="sr-only">Loading...</span>
+										</div>
+									</ul></p>
+                                </div>
+                            </div>
+                            
+                            <hr class="major" />
+                            <form method="post" action="#">
+								<h5>Have you ever tried wine <strong>recently?</strong></h5>
+								<p><i>Search a wine you liked to help us recommend you more precise content</i></p><br>
+								<input id="hero-demo" autofocus type="text" name="wine_1"/>
+								<button class="btn-max-width" type="button" class="btn btn-info" onclick="add_liked_wine()">Add</button>
+							</form>
+						</div>
+
+					</div><br>
+					<hr />
+				</div>
+				<div id="snackbar"></div>
+			</section>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-envelope"></span> <a href="#">information@chungang_univ</a></li>
+						<li><span class="icon fa-map-marker"></span> 84, Heukseok-ro, Dongjak-gu, Seoul, Republic of Korea</li>
+						<li><span class="icon fa-group"></span>Groupe 11</li>
+					</ul>
+				</div>
+				<!--copyright
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>  -->
+			</footer>
+
+		<!-- Scripts -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+			<script src="assets/js/auth.js"></script>
+			<script src="assets/js/snackbar.js"></script>
+			<script src="assets/js/request_service.js"></script>
+			<script src="assets/js/jquery.auto-complete.min.js"></script>
+			<script src="assets/js/my_recommendation_page.js"></script>
+			<script src="assets/js/logout.js"></script>
+	</body>
+</html>
